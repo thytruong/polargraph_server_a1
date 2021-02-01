@@ -51,13 +51,26 @@ Note that the pen lift servo usually lives on pin 9, so avoid
 that if you can. If you can't, then you know how to change it.
 */
 #ifdef SERIAL_STEPPER_DRIVERS
-#define MOTOR_A_ENABLE_PIN 3
-#define MOTOR_A_STEP_PIN 4
+//#define MOTOR_A_ENABLE_PIN 3
+//#define MOTOR_A_STEP_PIN 4
+//#define MOTOR_A_DIR_PIN 5
+//  
+//#define MOTOR_B_ENABLE_PIN 6
+//#define MOTOR_B_STEP_PIN 7
+//#define MOTOR_B_DIR_PIN 8
+
+//changé les pins pour CNC HAT
+#define MOTOR_A_ENABLE_PIN 8
+#define MOTOR_A_STEP_PIN 2
 #define MOTOR_A_DIR_PIN 5
   
-#define MOTOR_B_ENABLE_PIN 6
-#define MOTOR_B_STEP_PIN 7
-#define MOTOR_B_DIR_PIN 8
+#define MOTOR_B_ENABLE_PIN 8
+//changé le motor Y en Z car Y défectueux
+#define MOTOR_B_STEP_PIN 3
+//#define MOTOR_B_STEP_PIN 4
+#define MOTOR_B_DIR_PIN 6
+//#define MOTOR_B_DIR_PIN 7
+
 AccelStepper motorA(1,MOTOR_A_STEP_PIN, MOTOR_A_DIR_PIN); 
 AccelStepper motorB(1,MOTOR_B_STEP_PIN, MOTOR_B_DIR_PIN); 
 #endif
@@ -124,6 +137,3 @@ void configuration_setup()
 }
 // end of Adafruit motorshield definition
 // =================================================================
-
-
-

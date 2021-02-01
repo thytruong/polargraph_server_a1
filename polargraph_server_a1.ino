@@ -55,8 +55,8 @@ There are five config sections:
 
 //   i. Adafruit Motorshield v1. The original, and still the best.
 //   -------------------------------------------------------------
-#define ADAFRUIT_MOTORSHIELD_V1
-#include <AFMotor.h>
+//#define ADAFRUIT_MOTORSHIELD_V1
+//#include <AFMotor.h>
 
 //   ii. Adafruit Motorshield v2. It's all squealy.
 //   ----------------------------------------------
@@ -68,7 +68,7 @@ There are five config sections:
 //   iii. Using discrete stepper drivers? (eg EasyDriver, stepstick, Pololu gear)
 //   ----------------------------------------------------------------------------
 //   Don't forget to define your pins in 'configuration.ino'.
-//#define SERIAL_STEPPER_DRIVERS 
+ #define SERIAL_STEPPER_DRIVERS 
 
 //   iv. Using a signal amplifier like a UNL2003? 
 //   --------------------------------------------
@@ -136,11 +136,11 @@ const byte PEN_HEIGHT_SERVO_PIN = 9; //UNL2003 driver uses pin 9
 boolean isPenUp = false;
 
 // Machine specification defaults
-const int DEFAULT_MACHINE_WIDTH = 650;
-const int DEFAULT_MACHINE_HEIGHT = 650;
-const int DEFAULT_MM_PER_REV = 95;
+const int DEFAULT_MACHINE_WIDTH = 5000;
+const int DEFAULT_MACHINE_HEIGHT = 2800;
+const int DEFAULT_MM_PER_REV = 80;
 const int DEFAULT_STEPS_PER_REV = 400;
-const int DEFAULT_STEP_MULTIPLIER = 1;
+const int DEFAULT_STEP_MULTIPLIER = 16;
 
 // working machine specification
 static int motorStepsPerRev = DEFAULT_STEPS_PER_REV;
@@ -150,8 +150,8 @@ static int machineWidth = DEFAULT_MACHINE_WIDTH;
 static int machineHeight = DEFAULT_MACHINE_HEIGHT;
 
 
-static float currentMaxSpeed = 800.0;
-static float currentAcceleration = 400.0;
+static float currentMaxSpeed = 200.0;
+static float currentAcceleration = 100.0;
 static boolean usingAcceleration = true;
 
 int startLengthMM = 800;
@@ -388,5 +388,3 @@ static float scaleY = 1.0;
 static int rotateTransform = 0;
 
 #endif
-
-
